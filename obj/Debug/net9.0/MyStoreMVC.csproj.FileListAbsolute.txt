@@ -333,3 +333,4 @@ C:\projects\mvc\MyStoreMVC\MyStoreMVC\obj\Debug\net9.0\refint\MyStoreMVC.dll
 C:\projects\mvc\MyStoreMVC\MyStoreMVC\obj\Debug\net9.0\MyStoreMVC.pdb
 C:\projects\mvc\MyStoreMVC\MyStoreMVC\obj\Debug\net9.0\MyStoreMVC.genruntimeconfig.cache
 C:\projects\mvc\MyStoreMVC\MyStoreMVC\obj\Debug\net9.0\ref\MyStoreMVC.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\obj\Debug\net9.0\MyStoreMVC.sourcelink.json
