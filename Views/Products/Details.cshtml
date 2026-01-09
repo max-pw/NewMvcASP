@@ -1,0 +1,28 @@
+﻿@model MyStoreMVC.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h2 class="center-align">Product Details</h2>
+
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">@Model.Title</span>
+                <p><strong>Price:</strong> @Model.Price.ToString("C")</p>
+                <p><strong>Category:</strong> @Model.Category</p>
+                <p><strong>Description:</strong> @Model.Description</p>
+            </div>
+            <div class="card-action right-align">
+                <a class="btn waves-effect waves-light blue" asp-action="Edit" asp-route-id="@Model.Id">
+                    <i class="material-icons left">edit</i> Edit
+                </a>
+                <a class="btn waves-effect waves-light grey" asp-action="Index">
+                    <i class="material-icons left">arrow_back</i> Back
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
