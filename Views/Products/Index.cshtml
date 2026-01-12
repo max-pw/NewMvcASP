@@ -1,49 +1,127 @@
 ﻿@model IEnumerable<MyStoreMVC.Models.Product>
-
 @{
     ViewData["Title"] = "Products";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="card-panel green lighten-4 green-text text-darken-4">
+        <i class="material-icons left">check_circle</i>
+        @TempData["SuccessMessage"]
+    </div>
 }
 
 <h2 class="center-align">Products</h2>
 
 <div class="right-align" style="margin-bottom: 20px;">
-    <a class="btn waves-effect waves-light" asp-action="Create">
-        <i class="material-icons left">add</i> Create New
-    </a>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <span class="chip">
+            <i class="material-icons tiny">account_circle</i>
+            Welcome, @User.FindFirst("username")?.Value
+        </span>
+        <a class="btn waves-effect waves-light" asp-action="Create">
+            <i class="material-icons left">add</i> Create New
+        </a>
+        <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn waves-effect waves-light red">
+                <i class="material-icons left">logout</i> Logout
+            </button>
+        </form>
+    }
+    else
+    {
+        <a class="btn waves-effect waves-light blue" asp-controller="Account" asp-action="Login">
+            <i class="material-icons left">login</i> Login
+        </a>
+        <a class="btn waves-effect waves-light green" asp-controller="Account" asp-action="Register">
+            <i class="material-icons left">person_add</i> Register
+        </a>
+    }
 </div>
 
 <div class="card">
     <div class="card-content">
-        <table class="highlight responsive-table">
-            <thead>
-                <tr>
-                    <th style="width:30%;">Title</th>
-                    <th style="width:20%;">Price</th>
-                    <th style="width:20%;">Category</th>
-                    <th style="width:30%;" class="center-align">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
+        @if (!Model.Any())
+        {
+            <p class="center-align grey-text">
+                No products available.
+                @if (User.Identity?.IsAuthenticated == true)
                 {
-                    <tr>
-                        <td>@item.Title</td>
-                        <td>@item.Price.ToString("C")</td>
-                        <td>@item.Category</td>
-                        <td class="center-align">
-                            <a class="btn-small waves-effect waves-light blue" asp-action="Edit" asp-route-id="@item.Id" title="Edit">
-                                <i class="material-icons">edit</i>
-                            </a>
-                            <a class="btn-small waves-effect waves-light green" asp-action="Details" asp-route-id="@item.Id" title="Details">
-                                <i class="material-icons">visibility</i>
-                            </a>
-                            <a class="btn-small waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.Id" title="Delete">
-                                <i class="material-icons">delete</i>
-                            </a>
-                        </td>
-                    </tr>
+                    <a asp-action="Create">Create the first product!</a>
                 }
-            </tbody>
-        </table>
+                else
+                {
+                    <text>Please <a asp-controller="Account" asp-action="Login">login</a> to add products.</text>
+                }
+            </p>
+        }
+        else
+        {
+            <table class="highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width:30%;">Title</th>
+                        <th style="width:20%;">Price</th>
+                        <th style="width:20%;">Category</th>
+                        <th style="width:30%;" class="center-align">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Price.ToString("C")</td>
+                            <td>@item.Category</td>
+                            <td class="center-align">
+                                <a class="btn-small waves-effect waves-light green" asp-action="Details" asp-route-id="@item.Id" title="Details">
+                                    <i class="material-icons">visibility</i>
+                                </a>
+
+                                @if (User.Identity?.IsAuthenticated == true)
+                                {
+                                    <a class="btn-small waves-effect waves-light blue" asp-action="Edit" asp-route-id="@item.Id" title="Edit">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+                                    <a class="btn-small waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.Id" title="Delete">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="btn-small waves-effect waves-light grey tooltipped"
+                                       data-position="top"
+                                       data-tooltip="Login required"
+                                       asp-controller="Account"
+                                       asp-action="Login"
+                                       asp-route-returnUrl="@Url.Action("Edit", new { id = item.Id })">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+                                    <a class="btn-small waves-effect waves-light grey tooltipped"
+                                       data-position="top"
+                                       data-tooltip="Login required"
+                                       asp-controller="Account"
+                                       asp-action="Login"
+                                       asp-route-returnUrl="@Url.Action("Delete", new { id = item.Id })">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.tooltipped');
+            M.Tooltip.init(elems);
+        });
+    </script>
+}
