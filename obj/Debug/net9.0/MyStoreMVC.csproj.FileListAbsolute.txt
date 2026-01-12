@@ -334,3 +334,12 @@ C:\projects\mvc\MyStoreMVC\MyStoreMVC\obj\Debug\net9.0\MyStoreMVC.pdb
 C:\projects\mvc\MyStoreMVC\MyStoreMVC\obj\Debug\net9.0\MyStoreMVC.genruntimeconfig.cache
 C:\projects\mvc\MyStoreMVC\MyStoreMVC\obj\Debug\net9.0\ref\MyStoreMVC.dll
 C:\projects\mvc\MyStoreMVC\MyStoreMVC\obj\Debug\net9.0\MyStoreMVC.sourcelink.json
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
