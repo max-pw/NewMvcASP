@@ -343,3 +343,5 @@ C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Logg
 C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
 C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\projects\mvc\MyStoreMVC\MyStoreMVC\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
